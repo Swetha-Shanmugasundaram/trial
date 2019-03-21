@@ -29,7 +29,7 @@ services:
   zuul-apigateway:
     build: zuul/
     depends_on:
-      - config-server
+      - config-service
       - eureka-server
       - movie-service
       - user-service
@@ -40,7 +40,7 @@ services:
     ports:
       - 8081:8081
 
-  music-service:
+  movie-service:
     build: movie-service/
     restart: always
     network_mode: "host"
@@ -48,7 +48,7 @@ services:
     ports:
       - 9090:9090
     depends_on:
-      - config-server
+      - config-service
       - eureka-server
 
 
@@ -61,7 +61,7 @@ services:
     ports:
       - 9098:9098
     depends_on:
-      - config-server
+      - config-service
       - eureka-server
 
 
